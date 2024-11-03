@@ -51,6 +51,7 @@ def generate_ecg_data():
     s_wave = -0.2 * np.sin(2 * np.pi * t)
     ecg = p_wave + qrs_wave + s_wave
     return t, ecg
+
 while True:
 
     t, ecg = generate_ecg_data()
