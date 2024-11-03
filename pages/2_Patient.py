@@ -31,6 +31,20 @@ for i in range(1, 101):
 progress_bar.empty()
 
 
+from sqlalchemy import create_engine
+import pandas as pd
+
+# Create SQLAlchemy engine
+engine = create_engine('sqlite:///hospital_data.db')
+
+# Query the patient IDs
+query = "SELECT ID FROM Patients"
+with engine.connect() as conn:
+    patient_data = pd.read_sql(query, conn)
+
+# Display the patient data as a DataFrame
+st.dataframe(patient_data)
+
 
 # creating a single-element container
 placeholder = st.empty()
@@ -58,6 +72,8 @@ while True:
         )
         st.plotly_chart(fig)
         time.sleep(1)
+
+
 
 
 
