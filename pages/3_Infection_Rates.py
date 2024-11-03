@@ -12,10 +12,10 @@ st.write(
 
 st.sidebar.header("Geospatial infection rates data")
 st.write(
-    """This demo shows how to use
-[`st.pydeck_chart`](https://docs.streamlit.io/develop/api-reference/charts/st.pydeck_chart)
-to display geospatial data."""
+    """
+[`st.pydeck_chart`](https://docs.streamlit.io/develop/api-reference/charts/st.pydeck_chart)"""
 )
+st.write("""Zoom out to view global infection rates of COVID-19 currently.""")
 
 
 @st.cache_data
