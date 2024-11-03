@@ -10,16 +10,7 @@ st.write(
     "Global or local area"
 )
 
-x = st.slider('x')
-map_data = pd.DataFrame(
-    np.random.randn(1000, 2) / [50, 50] + [37.76, -122.4],
-    columns=['lat', 'lon'])
-
-st.map(map_data)
-
-
-st.markdown("# Mapping Demo")
-st.sidebar.header("Mapping Demo")
+st.sidebar.header("Geospatial infection rates data")
 st.write(
     """This demo shows how to use
 [`st.pydeck_chart`](https://docs.streamlit.io/develop/api-reference/charts/st.pydeck_chart)

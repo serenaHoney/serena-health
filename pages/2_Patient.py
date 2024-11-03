@@ -1,19 +1,19 @@
 import streamlit as st
 import time
 import numpy as np
+import plotly.graph_objects as go
 
 st.title("Patient Monitoring")
 st.write(
     "Monitor the health of individual patients and view their clinical record, using their ID"
 )
 
-st.markdown("# Plotting Demo")
-st.sidebar.header("Plotting Demo")
+st.sidebar.header("Patient Biometric Data")
 st.write(
-    """This demo illustrates a combination of plotting and animation with
-Streamlit. We're generating a bunch of random numbers in a loop for around
-5 seconds. Enjoy!"""
+    """Individual patient biometric data"""
 )
+
+# Temperature
 
 progress_bar = st.sidebar.progress(0)
 status_text = st.sidebar.empty()
@@ -30,15 +30,7 @@ for i in range(1, 101):
 
 progress_bar.empty()
 
-# Streamlit widgets automatically run the script from top to bottom. Since
-# this button is not connected to any other logic, it just causes a plain
-# rerun.
-st.button("Re-run")
 
-import time
-import streamlit as st
-import plotly.graph_objects as go
-import numpy as np
 
 # creating a single-element container
 placeholder = st.empty()
@@ -56,10 +48,7 @@ while True:
 
     t, ecg = generate_ecg_data()
 
-
     with placeholder.container():
-        st.title("ECG Waveform")
-
         fig = go.Figure(data=go.Scatter(x=t, y=ecg))
         fig.update_layout(
             title="ECG Waveform",
@@ -69,4 +58,6 @@ while True:
         )
         st.plotly_chart(fig)
         time.sleep(1)
+
+
 
